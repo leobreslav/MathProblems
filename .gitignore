@@ -1,0 +1,8 @@
+*.pyc
+*~
+__pycache__
+venv
+.idea
+settings_local.py
+static
+media

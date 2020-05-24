@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+В двойных фигурных скобках пишут вывод значения переменной,
+а в фигурных с процентом пишут всякие команды
+-->
+
+{% for task in all_tasks %}
+{{ task.id }}.({{ task.source }}). {{ task.body }}<br>
+Ответ: {{ task.ans }}.<br><br>
+{% endfor %}
+
+  <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ task_form.as_p }}
+        <button type="submit">Save</button>
+  </form>
+</body>
+</html>
