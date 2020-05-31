@@ -1,25 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'Problems/base.html' %}
+{% load crispy_forms_tags %}
 
-<!--
-В двойных фигурных скобках пишут вывод значения переменной,
-а в фигурных с процентом пишут всякие команды
--->
+{% block Title %}
+    Задачи
+{% endblock %}
 
-{% for task in all_tasks %}
-{{ task.id }}.({{ task.source }}). {{ task.body }}<br>
-Ответ: {{ task.ans }}.<br><br>
-{% endfor %}
+{% block content %}
 
-  <form method="POST" class="post-form">
+    <table class="table table-bordered">
+        <tr>
+            <th> Номер</th>
+            <th> Условие</th>
+            <th> Ответ</th>
+            <th> Источник</th>
+        </tr>
+        {% for task in all_tasks %}
+            <tr>
+                <td> №{{ task.id }}</td>
+                <td> {{ task.body }}</td>
+                <td> {{ task.ans }}</td>
+                <td> {{ task.source }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+    <form method="POST" class="post-form">
         {% csrf_token %}
-        {{ task_form.as_p }}
-        <button type="submit">Save</button>
-  </form>
-</body>
-</html>
+        {{ task_form|crispy }}
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+{% endblock %}

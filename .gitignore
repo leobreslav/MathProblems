@@ -4,5 +4,5 @@ __pycache__
 venv
 .idea
 settings_local.py
-static
+MathProblems/static
 media
