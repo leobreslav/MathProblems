@@ -34,6 +34,7 @@ env.hosts = [SUDO_USER_PROD + '@' + IP_PROD]
 # env.warn_only = True
 
 
+
 def start():
     run("sudo systemctl start gunicorn")
 
