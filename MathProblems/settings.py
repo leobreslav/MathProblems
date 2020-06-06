@@ -14,8 +14,6 @@ import os
 
 from .settings_local import *
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -26,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'django_registration',
     'Problems'
 ]
 
@@ -107,3 +106,60 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 STATICFILES_DIRS = [os.path.join('static'), ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+REGISTRATION_OPEN = True        # If True, users can register
+ACCOUNT_ACTIVATION_DAYS = 7     # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
+LOGIN_REDIRECT_URL = '/tasks'  # The page you want users to arrive at after they successful log in
+LOGIN_URL = '/accounts/login/'
+#https://myaccount.google.com/lesssecureapps
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mathproblemsdev@gmail.com'
+EMAIL_PORT = 587
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EMAIL_HOST_PASSWORD = 'amtro915'
