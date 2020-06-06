@@ -111,14 +111,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 REGISTRATION_OPEN = True        # If True, users can register
 ACCOUNT_ACTIVATION_DAYS = 7     # One-week activation window; you may, of course, use a different value.
 REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
-LOGIN_REDIRECT_URL = '/tasks'  # The page you want users to arrive at after they successful log in
+LOGIN_REDIRECT_URL = '/profile'  # The page you want users to arrive at after they successful log in
 LOGIN_URL = '/accounts/login/'
-#https://myaccount.google.com/lesssecureapps
-
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'mathproblemsdev@gmail.com'
 EMAIL_PORT = 587
-
-#EMAIL_HOST_PASSWORD = 'xxxxxx' #in settings_local.py
+#EMAIL_HOST_PASSWORD = 'xxxxxx' #put it in settings_local.py
+#unblock secure https://myaccount.google.com/lesssecureapps
