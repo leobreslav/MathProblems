@@ -2,6 +2,11 @@
 
 {% trans "Activate account at" %} {{ site.name }}:
 
-{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% url 'django_registration_activate' activation_key=activation_key %}
+{{ request.scheme }}://{{ site.domain }}{% url 'django_registration_activate' activation_key=activation_key %}
 
 {% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}
+
+
+{{ domain }}
+
+{{ protocol }}
