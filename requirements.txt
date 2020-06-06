@@ -1,9 +1,11 @@
 asgiref==3.2.7
 bcrypt==3.1.7
 cffi==1.14.0
+confusable-homoglyphs==3.2.0
 cryptography==2.9.2
 Django==3.0.7
 django-crispy-forms==1.9.1
+django-registration==3.1
 Fabric3==1.14.post1
 gunicorn==20.0.4
 mysqlclient==1.4.6
