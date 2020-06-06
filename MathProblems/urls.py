@@ -22,10 +22,11 @@ from django_registration.forms import RegistrationFormUniqueEmail
 
 from Problems.views import tasks
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('accounts/register/', RegistrationView.as_view(form_class=RegistrationFormUniqueEmail), name='django_registration_register'),
+    path('accounts/register/', RegistrationView.as_view(form_class=RegistrationFormUniqueEmail), name='django_registration_register_uniq_email'),
     path('accounts/', include('django_registration.backends.activation.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 

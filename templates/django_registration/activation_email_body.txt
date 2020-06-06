@@ -1,12 +1,8 @@
 {% load i18n %}
+{% load extras %}
 
-{% trans "Activate account at" %} {{ site.name }}:
+{% trans "Activate account at" %} {% settings_local_var 'DOMAIN' %}:
 
-{{ request.scheme }}://{{ site.domain }}{% url 'django_registration_activate' activation_key=activation_key %}
+{{ request.scheme }}://{% settings_local_var 'DOMAIN' %}{% url 'django_registration_activate' activation_key=activation_key %}
 
 {% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}
-
-
-{{ domain }}
-
-{{ protocol }}

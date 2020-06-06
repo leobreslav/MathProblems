@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "Problems/base.html" %}
 {% load i18n %}
 
 {% block content %}
-<form method="post" action=".">
+<form method="post" action="{% url 'django_registration_register_uniq_email' %}">
   {% csrf_token %}
     {{ form.as_table }}
     <input type="submit" value="{% trans 'Submit' %}" />

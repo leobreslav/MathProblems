@@ -1,1 +1,4 @@
-{% load i18n %}{% trans "Account activation on" %} {{ site.name }}
+{% load i18n %}
+{% load extras %}
+
+{% trans "Account activation on" %} {% settings_local_var 'DOMAIN' %}
