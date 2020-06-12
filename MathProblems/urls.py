@@ -20,16 +20,11 @@ from django.conf.urls.static import static
 from django_registration.backends.activation.views import RegistrationView
 from django_registration.forms import RegistrationFormUniqueEmail
 
-from Problems.views import tasks
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-
     path('accounts/register/', RegistrationView.as_view(form_class=RegistrationFormUniqueEmail), name='django_registration_register_uniq_email'),
     path('accounts/', include('django_registration.backends.activation.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-
-    path('tasks/', tasks, name='tasks'),
+    path('tasks/', include('Problems.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

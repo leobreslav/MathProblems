@@ -23,6 +23,8 @@ DATABASES = {
     }
 }
 
+DOMAIN = '127.0.0.1:8000'
+EMAIL_HOST_PASSWORD = 'xxxxxxxxx'
 
 
 

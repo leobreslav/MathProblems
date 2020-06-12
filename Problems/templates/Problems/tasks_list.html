@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block content %}
-    Deploy через Fabric работает!!<br>
     <table class="table table-bordered">
         <tr>
             <th> Номер</th>
             <th> Условие</th>
             <th> Ответ</th>
             <th> Источник</th>
+            <th> Действия</th>
         </tr>
         {% for task in all_tasks %}
             <tr>
@@ -20,14 +20,13 @@
                 <td> {{ task.body }}</td>
                 <td> {{ task.ans }}</td>
                 <td> {{ task.source }}</td>
+                <td>
+                    <button onclick="window.location.href='{% url 'tasks_read_task' task_id=task.id %}'">Просмотр</button>
+                    <button onclick="window.location.href='{% url 'tasks_edit_task' task_id=task.id %}'">Редактировать</button>
+                    <button onclick="window.location.href='{% url 'tasks_delete_task' task_id=task.id %}'">Удалить</button>
+                </td>
             </tr>
         {% endfor %}
     </table>
-
-
-    <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ task_form|crispy }}
-        <button type="submit" class="btn btn-primary">Сохранить</button>
-    </form>
+    <button onclick="window.location.href='{% url 'tasks_create_task' %}'">Создать</button>
 {% endblock %}

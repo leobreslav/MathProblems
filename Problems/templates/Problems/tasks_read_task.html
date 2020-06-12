@@ -1,0 +1,23 @@
+{% extends 'Problems/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block Title %}
+    Задачи
+{% endblock %}
+
+{% block content %}
+    <table class="table table-bordered">
+        <tr>
+            <th> Номер</th>
+            <th> Условие</th>
+            <th> Ответ</th>
+            <th> Источник</th>
+        </tr>
+        <tr>
+            <td> №{{ task.id }}</td>
+            <td> {{ task.body }}</td>
+            <td> {{ task.ans }}</td>
+            <td> {{ task.source }}</td>
+        </tr>
+    </table>
+{% endblock %}
