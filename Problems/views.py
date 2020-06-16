@@ -1,7 +1,8 @@
+import json
+
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-# Create your views here.
 from Problems.forms import TaskForm
 from Problems.models import Task
 
@@ -59,3 +60,34 @@ def tasks_delete_task(request, task_id):
 
     context = {'task': task}
     return render(request, 'Problems/tasks_delete_task.html', context)
+
+
+def try_ajax(request):
+
+    all_data = request.POST.get('all_data')
+    all_data = json.loads(all_data)
+
+    for cell in all_data:
+        task_id = cell['task_id']
+        task_field = cell['task_field']
+        task_field_value = cell['field_value']
+
+        task = Task.objects.get(id=task_id)
+
+        if task_field == 'ans':
+            task.ans = task_field_value
+        elif task_field == 'body':
+            task.body = task_field_value
+        elif task_field == 'source':
+            task.source = task_field_value
+
+        task.save()
+
+    return HttpResponse(str(task.id))
+
+
+def tasks_list_edit_grid(request):
+    all_tasks = Task.objects.all()
+
+    context = {'all_tasks': all_tasks}
+    return render(request, 'Problems/tasks_list_edit_grid.html', context)

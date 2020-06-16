@@ -17,9 +17,9 @@
         {% for task in all_tasks %}
             <tr>
                 <td> №{{ task.id }}</td>
-                <td> {{ task.body }}</td>
-                <td> {{ task.ans }}</td>
-                <td> {{ task.source }}</td>
+                <td><input type="text" id="{{ task.id }}_body" value="{{ task.body }}"></td>
+                <td><input type="text" id="{{ task.id }}_ans" value="{{ task.ans }}"</td>
+                <td><input type="text" id="{{ task.id }}_source" value="{{ task.source }}"</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'tasks_read_task' task_id=task.id %}'" data-toggle="tooltip" data-placement="right" title="Подробнее"><i class="fas fa-eye"></i></button>
@@ -34,4 +34,5 @@
 
 
     <button type="button" class="btn btn-secondary" onclick="try_ajax()">Ajax</button>
+    <div id="ajax_result"></div>
 {% endblock %}
